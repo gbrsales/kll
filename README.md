@@ -13,7 +13,7 @@ Efficiently computes (an approximation of) the CDF of numeric values stored in a
 library(DelayedArray)
 library(kll)
 
-d <- DelayedArray(runif(1000000, dim = c(100000, 1)))
+d <- DelayedArray(runif(1000000, dim = c(1000000, 1)))
 kll_cdf(d, 20L)
 ```
 
