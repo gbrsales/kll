@@ -1,5 +1,7 @@
 # kll
 
+![Build Status](https://travis-ci.org/gbrsales/kll.svg?branch=master)
+
 An R package implementing the first algorithm described by Karnin, Lang and
 Liberty in [Optimal Quantile Approximation in Streams](http://arxiv.org/abs/1603.05346).
 
