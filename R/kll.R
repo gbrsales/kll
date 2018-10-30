@@ -14,35 +14,35 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-#' Compute the CDF of some numeric values.
+#' Compute the approximate CDF of some numeric values.
 #'
 #' @param object A collection of numeric values.
 #' @param k The K parameter for creating a KLL sketch.
 #' @param ... Extra named arguments.
 #'
-#' @rdname kll_cdf
+#' @rdname approx_cdf
 #' @export
 #'
-setGeneric("kll_cdf", function(object, k, ...) {
-  standardGeneric("kll_cdf")
+setGeneric("approx_cdf", function(object, k, ...) {
+  standardGeneric("approx_cdf")
 })
 
-#' @rdname kll_cdf
+#' @rdname approx_cdf
 setMethod(
-  "kll_cdf", c("numeric", "integer"),
+  "approx_cdf", c("numeric", "integer"),
   function(object, k) {
     kll <- kll_new(k)
     kll_update(kll, object)
-    kll_cdf_impl(kll)
+    kll_cdf(kll)
   }
 )
 
-#' @rdname kll_cdf
+#' @rdname approx_cdf
 setMethod(
-  "kll_cdf", c("DelayedArray", "integer"),
+  "approx_cdf", c("DelayedArray", "integer"),
   function(object, k) {
     if (DelayedArray::type(object) != "double") {
-      stop("kll_cdf requires as input numeric (double) values")
+      stop("need as input a numeric array")
     }
 
     kll <- DelayedArray::blockReduce(
@@ -50,6 +50,7 @@ setMethod(
       object,
       kll_new(k)
     )
-    kll_cdf_impl(kll)
+    kll_cdf(kll)
   }
 )
+

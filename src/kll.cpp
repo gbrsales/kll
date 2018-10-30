@@ -142,7 +142,7 @@ SEXP kll_update(SEXP kll_, const NumericVector& values) {
 }
 
 // [[Rcpp::export]]
-SEXP kll_cdf_impl(SEXP kll_) {
+SEXP kll_cdf(SEXP kll_) {
   XPtr<KLL> kll(kll_);
   const auto res = kll->cdf();
 

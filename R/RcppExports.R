@@ -9,7 +9,7 @@ kll_update <- function(kll_, values) {
     .Call('_kll_kll_update', PACKAGE = 'kll', kll_, values)
 }
 
-kll_cdf_impl <- function(kll_) {
-    .Call('_kll_kll_cdf_impl', PACKAGE = 'kll', kll_)
+kll_cdf <- function(kll_) {
+    .Call('_kll_kll_cdf', PACKAGE = 'kll', kll_)
 }
 

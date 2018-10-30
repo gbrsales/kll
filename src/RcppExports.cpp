@@ -28,14 +28,14 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// kll_cdf_impl
-SEXP kll_cdf_impl(SEXP kll_);
-RcppExport SEXP _kll_kll_cdf_impl(SEXP kll_SEXP) {
+// kll_cdf
+SEXP kll_cdf(SEXP kll_);
+RcppExport SEXP _kll_kll_cdf(SEXP kll_SEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< SEXP >::type kll_(kll_SEXP);
-    rcpp_result_gen = Rcpp::wrap(kll_cdf_impl(kll_));
+    rcpp_result_gen = Rcpp::wrap(kll_cdf(kll_));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -43,7 +43,7 @@ END_RCPP
 static const R_CallMethodDef CallEntries[] = {
     {"_kll_kll_new", (DL_FUNC) &_kll_kll_new, 1},
     {"_kll_kll_update", (DL_FUNC) &_kll_kll_update, 2},
-    {"_kll_kll_cdf_impl", (DL_FUNC) &_kll_kll_cdf_impl, 1},
+    {"_kll_kll_cdf", (DL_FUNC) &_kll_kll_cdf, 1},
     {NULL, NULL, 0}
 };
 
