@@ -132,7 +132,7 @@ SEXP kll_new(SEXP k_) {
 }
 
 // [[Rcpp::export]]
-SEXP kll_update(SEXP kll_, NumericVector values) {
+SEXP kll_update(SEXP kll_, const NumericVector& values) {
   XPtr<KLL> kll(kll_);
   for (double value : values) {
     kll->update(value);

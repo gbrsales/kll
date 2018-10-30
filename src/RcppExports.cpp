@@ -17,13 +17,13 @@ BEGIN_RCPP
 END_RCPP
 }
 // kll_update
-SEXP kll_update(SEXP kll_, NumericVector values);
+SEXP kll_update(SEXP kll_, const NumericVector& values);
 RcppExport SEXP _kll_kll_update(SEXP kll_SEXP, SEXP valuesSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< SEXP >::type kll_(kll_SEXP);
-    Rcpp::traits::input_parameter< NumericVector >::type values(valuesSEXP);
+    Rcpp::traits::input_parameter< const NumericVector& >::type values(valuesSEXP);
     rcpp_result_gen = Rcpp::wrap(kll_update(kll_, values));
     return rcpp_result_gen;
 END_RCPP

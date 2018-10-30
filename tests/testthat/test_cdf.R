@@ -36,14 +36,16 @@ test_that("works on a single-column DelayedArray", {
   )
 })
 
-test_that("rejects non-columnar DelayedArrays", {
-  d <- DelayedArray(array(runif(10000), dim = c(100, 100)))
-  expect_error(kll_cdf(d, 20L), "takes as input")
-})
-
 test_that("wants double values", {
   d <- DelayedArray(array(letters, dim = c(length(letters), 1)))
-  expect_error(kll_cdf(d, 20L), "takes as input")
+  expect_error(kll_cdf(d, 20L), "requires as input")
+})
+
+test_that("handles multidimensional arrays", {
+  values <- runif(1000)
+  d <- DelayedArray(array(values, dim = c(10, 100)))
+
+  expect_identical(kll_cdf(values, 20L), kll_cdf(d, 20L))
 })
 
 test_that("works with a custom grid maker", {

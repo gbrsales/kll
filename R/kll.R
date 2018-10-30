@@ -41,9 +41,8 @@ setMethod(
 setMethod(
   "kll_cdf", c("DelayedArray", "integer"),
   function(object, k) {
-    dm <- dim(object)
-    if (length(dm) != 2 || dm[2] != 1 || DelayedArray::type(object) != "double") {
-      stop("kll_cdf takes as input a single column of numeric (double) values")
+    if (DelayedArray::type(object) != "double") {
+      stop("kll_cdf requires as input numeric (double) values")
     }
 
     kll <- DelayedArray::blockReduce(
