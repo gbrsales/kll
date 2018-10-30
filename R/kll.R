@@ -53,4 +53,3 @@ setMethod(
     kll_cdf(kll)
   }
 )
-
